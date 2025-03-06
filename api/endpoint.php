@@ -11,7 +11,10 @@ switch($_SERVER["REQUEST_METHOD"]){
             $username = $data["username"];
             $password = $data["password"];
             if(getUser($username, $password)) {
-                deliverResponse(200, "User identified successfully");
+                $headers = array('alg' => 'HS256', 'typ' => 'JWT');
+                $payload = array('login' => $username, 'role' => getRole($username), 'exp' => time() + 60);
+                $jwt = generate_jwt($headers, $payload);
+                deliverResponse(200, "User identified successfully",data:$jwt);
             }else{
                 deliverResponse(400, "Error wrong credential");
             }
