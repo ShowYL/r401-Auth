@@ -6,6 +6,7 @@ function deliverResponse($status_code, $status_message, $data=null){
     header('Content-Type:application/json; charset=utf-8');
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: Content-Type, Authorization');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 
     $response['status_code'] = $status_code;
     $response['status'] = $status_message;
