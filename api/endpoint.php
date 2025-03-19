@@ -2,12 +2,7 @@
 require_once '../model/gestionAuth.php';
 require_once '../model/utils.php';
 
-const timeExpire = 60 ; # time in second for the JWT token to expire currently 1 minute
-
-header('Content-Type:application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+const timeExpire = 60 * 60 ; # time in second for the JWT token to expire currently 1 hour
 
 switch ($_SERVER["REQUEST_METHOD"]) {
 
